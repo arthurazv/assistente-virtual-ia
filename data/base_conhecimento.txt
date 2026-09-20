@@ -1,0 +1,21 @@
+## TÓPICO: GIT E GITHUB
+- O que é Git? Um sistema de controle de versão. Permite salvar o histórico das alterações do seu código.
+- O que é GitHub? Uma plataforma online (nuvem) onde você guarda seus repositórios Git, facilitando o trabalho em equipe.
+- Comando `git init`: Inicia um repositório Git novo na pasta atual.
+- Comando `git status`: Mostra o estado dos seus arquivos (quais foram modificados, adicionados ou deletados).
+- Comando `git add .`: Adiciona todas as mudanças da pasta atual para a "área de preparação" (staging area), preparando para o commit.
+- Comando `git commit -m "mensagem"`: Salva as alterações da área de preparação de forma permanente no histórico local. A mensagem deve ser clara sobre o que foi feito.
+- Comando `git push`: Envia os commits locais para o repositório remoto (ex: GitHub).
+- Comando `git pull`: Puxa as atualizações do repositório remoto para o seu computador.
+- Comando `git clone <url>`: Baixa um repositório existente na internet para a sua máquina local.
+
+## TÓPICO: AMBIENTE DE DESENVOLVIMENTO
+- VS Code (Visual Studio Code): É um editor de código-fonte muito popular, leve e cheio de extensões. Ótimo para quem está começando. Extensões recomendadas: Prettier, Python, Live Server.
+- Terminal: É uma interface de texto onde você digita comandos para o computador executar. Exemplo: `cd pasta` para entrar em uma pasta, `ls` ou `dir` para listar os arquivos da pasta.
+- Variáveis de Ambiente: São valores escondidos que o seu sistema operacional ou programa usa, muitas vezes para guardar senhas ou chaves de API sem precisar colocar diretamente no código-fonte. O arquivo `.env` costuma guardar essas variáveis localmente.
+- Ambiente Virtual Python (venv): Usado para isolar as dependências (bibliotecas) de um projeto Python. Evita que instalar uma biblioteca para um projeto estrague o outro projeto. Comando para criar: `python -m venv venv`.
+
+## TÓPICO: DICAS GERAIS
+- Não decore comandos, entenda para que eles servem. É normal usar o Google para lembrar a sintaxe.
+- Ao travar num bug, leia a mensagem de erro (StackTrace) de baixo para cima. O problema costuma estar na última linha.
+- Pratique todos os dias, a consistência é mais importante que o tempo diário de estudo.
