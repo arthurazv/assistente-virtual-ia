@@ -2,14 +2,21 @@ import os
 from google import genai
 from google.genai import types
 from dotenv import load_dotenv
+
+# Importa o prompt do arquivo prompts.py
 from prompts import get_system_prompt
 
-# Carrega variáveis de ambiente do arquivo .env (como a GEMINI_API_KEY)
-load_dotenv()
+# Carrega variáveis de ambiente do arquivo .env explicitamente da raiz
+caminho_env = os.path.join(os.path.dirname(__file__), '..', '.env')
+load_dotenv(caminho_env)
 
-# Inicializa o cliente do Gemini
-# Ele automaticamente pega a variável de ambiente GEMINI_API_KEY
-client = genai.Client()
+# Inicializa o cliente do Gemini passando a chave explicitamente
+api_key = os.getenv("GEMINI_API_KEY")
+if not api_key:
+    print("ERRO: A variável GEMINI_API_KEY não foi encontrada no arquivo .env!")
+    exit(1)
+
+client = genai.Client(api_key=api_key)
 
 def carregar_base_conhecimento(caminho_arquivo: str) -> str:
     """Lê o arquivo de texto com a base de conhecimento."""
@@ -33,14 +40,14 @@ def main():
     system_instruction = get_system_prompt(base_conhecimento)
 
     # Configuração do Chat
-    # Usando o modelo gemini-2.5-flash que é rápido e eficiente
+    # Usando o modelo gemini-3.6-flash recomendado pela API
     config = types.GenerateContentConfig(
         system_instruction=system_instruction,
         temperature=0.3, # Temperatura baixa para focar na base de conhecimento e evitar alucinações
     )
 
     # Inicia o chat (mantém o histórico da conversa)
-    chat = client.chats.create(model="gemini-2.5-flash", config=config)
+    chat = client.chats.create(model="gemini-3.6-flash", config=config)
 
     # Loop de interação com o usuário
     while True:
